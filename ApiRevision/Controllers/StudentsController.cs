@@ -16,7 +16,7 @@ namespace ApiRevision.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<Student>> GetStudents() //In ActionResult It will show Schema
+        public IActionResult GetStudents() 
         {
             IEnumerable<Student> students = _context.Students;
             return Ok(students);
@@ -24,10 +24,10 @@ namespace ApiRevision.Controllers
 
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound,Type=typeof(Student))] 
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest,Type =typeof(Student))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Student))]
 
-        public IActionResult GetStudent(int id) //While using IActionResult we have to use typeof to display schema
+        public IActionResult GetStudent(int id) 
         {
             if(id == 0)
             {
