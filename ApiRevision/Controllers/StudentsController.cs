@@ -1,5 +1,7 @@
 ﻿using ApiRevision.Model;
+using ApiRevision.Model.Dto;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 
 namespace ApiRevision.Controllers
 {
@@ -15,17 +17,18 @@ namespace ApiRevision.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK,Type = typeof(StudentDto))]
         public IActionResult GetStudents() 
         {
-            IEnumerable<Student> students = _context.Students;
-            return Ok(students);
+            IEnumerable<StudentDto> studentsDtoList = _context.Students.
+                                                       Select( s => new StudentDto { Id= s.Id, GrNo = s.GrNo, Name =s.Name,Stream = s.Stream});
+            return Ok(studentsDtoList);
         }
 
         [HttpGet("{id:int}")]
-        [ProducesResponseType(StatusCodes.Status404NotFound,Type=typeof(Student))] 
-        [ProducesResponseType(StatusCodes.Status400BadRequest,Type =typeof(Student))]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Student))]
+        [ProducesResponseType(StatusCodes.Status404NotFound,Type=typeof(StudentDto))] 
+        [ProducesResponseType(StatusCodes.Status400BadRequest,Type =typeof(StudentDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(StudentDto))]
 
         public IActionResult GetStudent(int id) 
         {
@@ -39,7 +42,27 @@ namespace ApiRevision.Controllers
             {
                 return BadRequest ();
             }
-            return Ok(student);
+            StudentDto studentDto = new() 
+                                    { 
+                                      Id = student.Id,
+                                      GrNo = student.GrNo,
+                                      Name =student.Name,
+                                      Stream =student.Stream
+                                     };
+            return Ok(studentDto);
+
+           
+        }
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(StudentDto))]
+        public IActionResult Create(StudentDto studentDto)
+        {
+            Student student = new() { Name = studentDto.Name, GrNo = studentDto.GrNo, Stream = studentDto.Stream ,DateOfAdmission= DateTime.UtcNow};
+            _context.Students.Add(student);
+            _context.SaveChanges();
+
+            studentDto.Id = student.Id;
+            return Ok(studentDto);
         }
     }
 }
