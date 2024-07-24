@@ -1,4 +1,5 @@
 using ApiRevision;
+using ApiRevision.NewFolder;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
     option.UseSqlServer(connectionString);
 }
 );
+
+builder.Services.AddScoped<IMyCustomLog,MyCustomLog>();
 
 var app = builder.Build();
 
