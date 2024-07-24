@@ -14,11 +14,14 @@ namespace ApiRevision.Controllers
     public class StudentsController : ControllerBase
     {
       private readonly ApplicationDbContext _context;
+        private readonly ILogger<StudentsController> _logger;
+
 
         #region Constructor
-        public StudentsController(ApplicationDbContext context)
+        public StudentsController(ApplicationDbContext context, ILogger<StudentsController> logger)
         {
             _context = context;
+            _logger = logger;
         }
         #endregion
 
@@ -29,6 +32,7 @@ namespace ApiRevision.Controllers
         {
             IEnumerable<StudentDto> studentsDtoList =await _context.Students.
                                                        Select( s => new StudentDto { Id= s.Id, GrNo = s.GrNo, Name =s.Name,Stream = s.Stream}).ToListAsync();
+            _logger.LogInformation("Get All has been executed successfully....");
             return Ok(studentsDtoList);
         }
         #endregion
