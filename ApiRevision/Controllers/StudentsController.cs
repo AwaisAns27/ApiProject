@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
+using System.Net;
 
 namespace ApiRevision.Controllers
 {
@@ -15,6 +16,7 @@ namespace ApiRevision.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly ILogger<StudentsController> _logger;
+        private readonly ApiResponse _apiResponse;
 
 
         #region Constructor
@@ -22,19 +24,36 @@ namespace ApiRevision.Controllers
         {
             _context = context;
             _logger = logger;
+            _apiResponse = new ApiResponse();
         }
         #endregion
 
         #region GetAll
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK,Type = typeof(StudentDto))]
-        public async Task <IActionResult> GetStudents() 
+        public async Task <ApiResponse> GetStudents() 
         {
-            IEnumerable<StudentDto> studentsDtoList =await _context.Students.
-                                                       Select( s => new StudentDto { Id= s.Id, GrNo = s.GrNo, Name =s.Name,Stream = s.Stream}).ToListAsync();
-            _logger.LogDebug("GetAll is been executed"); 
 
-            return Ok(studentsDtoList);
+            try
+            {
+                IEnumerable<StudentDto> studentsDtoList = await _context.Students.
+                                                  Select(s => new StudentDto { Id = s.Id, GrNo = s.GrNo, Name = s.Name, Stream = s.Stream }).ToListAsync();
+                _logger.LogDebug("GetAll is been executed");
+                _apiResponse.Result = studentsDtoList;
+                _apiResponse.StatusCode = HttpStatusCode.OK;
+                _apiResponse.IsSuccess = true;
+                _apiResponse.ErrorMessage = "No Error - Code is Executed Successfully"; 
+
+            }
+            catch (Exception)
+            {
+                _apiResponse.StatusCode=HttpStatusCode.BadRequest;
+                _apiResponse.IsSuccess= false;
+                _apiResponse.ErrorMessage = "Error Occured";
+            }
+            return _apiResponse;
+
+            
         }
         #endregion
 
