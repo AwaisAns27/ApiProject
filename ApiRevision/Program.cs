@@ -1,10 +1,16 @@
 using ApiRevision;
-using ApiRevision.NewFolder;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Host.UseSerilog();
+
+Log.Logger= new LoggerConfiguration().
+            MinimumLevel.Debug().
+            WriteTo.File(@"MyLog\apiLog").
+            CreateLogger();
 
 builder.Services.AddControllers
     (opt => opt.ReturnHttpNotAcceptable=true).
@@ -21,7 +27,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 }
 );
 
-builder.Services.AddScoped<IMyCustomLog,MyCustomLog>();
 
 var app = builder.Build();
 
@@ -31,6 +36,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 
