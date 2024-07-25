@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ApiRevision/NewFolder/IMyCustomLog.cs
+/ApiRevision/NewFolder/MyCustomLog.cs

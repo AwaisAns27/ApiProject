@@ -1,6 +1,5 @@
 ﻿using ApiRevision.Model;
 using ApiRevision.Model.Dto;
-using ApiRevision.NewFolder;
 using Azure.Core.Pipeline;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -14,17 +13,15 @@ namespace ApiRevision.Controllers
     [ApiController]
     public class StudentsController : ControllerBase
     {
-      private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
         private readonly ILogger<StudentsController> _logger;
-        private readonly IMyCustomLog _myCustomLog;
 
 
         #region Constructor
-        public StudentsController(ApplicationDbContext context, ILogger<StudentsController> logger, IMyCustomLog myCustomLog)
+        public StudentsController(ApplicationDbContext context, ILogger<StudentsController> logger)
         {
             _context = context;
             _logger = logger;
-            _myCustomLog = myCustomLog;
         }
         #endregion
 
@@ -35,8 +32,8 @@ namespace ApiRevision.Controllers
         {
             IEnumerable<StudentDto> studentsDtoList =await _context.Students.
                                                        Select( s => new StudentDto { Id= s.Id, GrNo = s.GrNo, Name =s.Name,Stream = s.Stream}).ToListAsync();
-            _logger.LogInformation("Get All has been executed successfully....");
-            _myCustomLog.ShowLog();
+            _logger.LogDebug("GetAll is been executed"); 
+
             return Ok(studentsDtoList);
         }
         #endregion
