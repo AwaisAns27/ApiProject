@@ -63,28 +63,45 @@ namespace ApiRevision.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest,Type =typeof(StudentDto))]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(StudentDto))]
 
-        public async Task<IActionResult> GetStudent(int id) 
+        public async Task<ApiResponse> GetStudent(int id) 
         {
-            if(id == 0)
-            {
-                return NotFound(); 
-            }
+            
+                if (id == 0) 
+                {
+                    _apiResponse.StatusCode = HttpStatusCode.BadRequest;
+                    _apiResponse.IsSuccess = false;
+                    _apiResponse.Message = "Id is Zero Pls enter valid No.";
+                    return _apiResponse;
+                }
+                var studentInDb =await _context.Students.FindAsync(id);
 
-            var student =await _context.Students.FirstOrDefaultAsync(x => x.Id == id) ;
-            if (student == null)
+            if (studentInDb == null)
             {
-                return BadRequest ();
+                _apiResponse.StatusCode = HttpStatusCode.NotFound;
+                _apiResponse.IsSuccess = false;
+                _apiResponse.Message = "There is no data corresponding to the Id you Entered";
+                return _apiResponse;
             }
-            StudentDto studentDto = new() 
-                                    { 
-                                      Id = student.Id,
-                                      GrNo = student.GrNo,
-                                      Name =student.Name,
-                                      Stream =student.Stream
-                                     };
-            return Ok(studentDto);
+            else 
+            {
+                var student = await _context.Students.FirstOrDefaultAsync(x => x.Id == id);
+                StudentDto studentDto = new()
+                {
+                    Id = student.Id,
+                    GrNo = student.GrNo,
+                    Name = student.Name,
+                    Stream = student.Stream
+                };
+                _apiResponse.Result = studentDto;
+                _apiResponse.StatusCode = HttpStatusCode.OK;
+                _apiResponse.IsSuccess = true;
+                _apiResponse.Message = "No Error - Code is Executed Successfully";
 
-           
+                return _apiResponse;
+            }
+                   
+                
+                
         }
         #endregion
 
