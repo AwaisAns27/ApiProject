@@ -123,3 +123,128 @@ FROM [Students] AS [s]
 2024-07-25 17:03:12.457 +05:30 [DBG] Disposing connection to database 'ApiRevision' on server 'RAWKZY'.
 2024-07-25 17:03:12.458 +05:30 [DBG] Disposed connection to database '' on server '' (1ms).
 2024-07-25 17:03:12.458 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7206/api/students - 200 237 application/json; charset=utf-8 2418.9426ms
+2024-07-25 17:33:27.037 +05:30 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-07-25 17:33:27.121 +05:30 [DBG] Hosting starting
+2024-07-25 17:33:27.313 +05:30 [INF] Now listening on: https://localhost:7206
+2024-07-25 17:33:27.313 +05:30 [INF] Now listening on: http://localhost:5158
+2024-07-25 17:33:27.313 +05:30 [DBG] Loaded hosting startup assembly ApiRevision
+2024-07-25 17:33:27.313 +05:30 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2024-07-25 17:33:27.313 +05:30 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2024-07-25 17:33:27.313 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-25 17:33:27.316 +05:30 [INF] Hosting environment: Development
+2024-07-25 17:33:27.316 +05:30 [INF] Content root path: C:\Users\ansar\source\repos\ApiRevision\ApiRevision
+2024-07-25 17:33:27.316 +05:30 [DBG] Hosting started
+2024-07-25 17:33:27.724 +05:30 [DBG] Connection id "0HN5CK75HSF56" accepted.
+2024-07-25 17:33:27.724 +05:30 [DBG] Connection id "0HN5CK75HSF56" started.
+2024-07-25 17:33:27.733 +05:30 [DBG] Connection id "0HN5CK75HSF56" received FIN.
+2024-07-25 17:33:27.733 +05:30 [DBG] Connection id "0HN5CK75HSF57" received FIN.
+2024-07-25 17:33:27.737 +05:30 [DBG] Connection id "0HN5CK75HSF57" accepted.
+2024-07-25 17:33:27.738 +05:30 [DBG] Connection id "0HN5CK75HSF57" started.
+2024-07-25 17:33:27.746 +05:30 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-07-25 17:33:27.746 +05:30 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-07-25 17:33:27.772 +05:30 [DBG] Connection id "0HN5CK75HSF57" stopped.
+2024-07-25 17:33:27.772 +05:30 [DBG] Connection id "0HN5CK75HSF56" stopped.
+2024-07-25 17:33:27.775 +05:30 [DBG] Connection id "0HN5CK75HSF56" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-07-25 17:33:27.775 +05:30 [DBG] Connection id "0HN5CK75HSF57" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-07-25 17:33:28.053 +05:30 [DBG] Connection id "0HN5CK75HSF58" accepted.
+2024-07-25 17:33:28.078 +05:30 [DBG] Connection id "0HN5CK75HSF58" started.
+2024-07-25 17:33:28.114 +05:30 [DBG] Connection 0HN5CK75HSF58 established using the following protocol: "Tls13"
+2024-07-25 17:33:28.193 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7206/swagger/index.html - null null
+2024-07-25 17:33:28.300 +05:30 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-07-25 17:33:28.318 +05:30 [DBG] No candidates found for the request path '/swagger/index.html'
+2024-07-25 17:33:28.318 +05:30 [DBG] Request did not match any endpoints
+2024-07-25 17:33:28.451 +05:30 [DBG] Response markup is scheduled to include Browser Link script injection.
+2024-07-25 17:33:28.452 +05:30 [DBG] Response markup is scheduled to include browser refresh script injection.
+2024-07-25 17:33:28.477 +05:30 [DBG] Response markup was updated to include Browser Link script injection.
+2024-07-25 17:33:28.477 +05:30 [DBG] Response markup was updated to include browser refresh script injection.
+2024-07-25 17:33:28.484 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7206/swagger/index.html - 200 null text/html;charset=utf-8 295.1756ms
+2024-07-25 17:33:28.498 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7206/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-25 17:33:28.504 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7206/_vs/browserLink - null null
+2024-07-25 17:33:28.506 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7206/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 7.8133ms
+2024-07-25 17:33:28.566 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7206/_vs/browserLink - 200 null text/javascript; charset=UTF-8 62.405ms
+2024-07-25 17:33:28.935 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7206/swagger/v1/swagger.json - null null
+2024-07-25 17:33:28.935 +05:30 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2024-07-25 17:33:28.936 +05:30 [DBG] Request did not match any endpoints
+2024-07-25 17:33:29.078 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7206/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 142.8294ms
+2024-07-25 17:33:37.703 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7206/api/students - null null
+2024-07-25 17:33:37.709 +05:30 [DBG] 1 candidate(s) found for the request path '/api/students'
+2024-07-25 17:33:37.715 +05:30 [DBG] Endpoint 'ApiRevision.Controllers.StudentsController.GetStudents (ApiRevision)' with route pattern 'api/students' is valid for the request path '/api/students'
+2024-07-25 17:33:37.716 +05:30 [DBG] Request matched endpoint 'ApiRevision.Controllers.StudentsController.GetStudents (ApiRevision)'
+2024-07-25 17:33:37.722 +05:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-07-25 17:33:37.731 +05:30 [INF] Executing endpoint 'ApiRevision.Controllers.StudentsController.GetStudents (ApiRevision)'
+2024-07-25 17:33:37.771 +05:30 [INF] Route matched with {action = "GetStudents", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[ApiRevision.ApiResponse] GetStudents() on controller ApiRevision.Controllers.StudentsController (ApiRevision).
+2024-07-25 17:33:37.773 +05:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-07-25 17:33:37.773 +05:30 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-07-25 17:33:37.774 +05:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-07-25 17:33:37.774 +05:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-07-25 17:33:37.774 +05:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-07-25 17:33:37.778 +05:30 [DBG] Executing controller factory for controller ApiRevision.Controllers.StudentsController (ApiRevision)
+2024-07-25 17:33:37.999 +05:30 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-07-25 17:33:38.030 +05:30 [DBG] Executed controller factory for controller ApiRevision.Controllers.StudentsController (ApiRevision)
+2024-07-25 17:33:38.836 +05:30 [DBG] Entity Framework Core 8.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.7' with options: None
+2024-07-25 17:33:38.919 +05:30 [DBG] Compiling query expression: 
+'DbSet<Student>()
+    .Select(s => new StudentDto{ 
+        Id = s.Id, 
+        GrNo = s.GrNo, 
+        Name = s.Name, 
+        Stream = s.Stream 
+    }
+    )'
+2024-07-25 17:33:39.234 +05:30 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<StudentDto>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            Id -> 0
+            GrNo -> 1
+            Name -> 2
+            Stream -> 3
+        SELECT s.Id, s.GrNo, s.Name, s.Stream
+        FROM Students AS s), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, StudentDto>, 
+    ApiRevision.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)'
+2024-07-25 17:33:39.286 +05:30 [DBG] Creating DbConnection.
+2024-07-25 17:33:39.317 +05:30 [DBG] Created DbConnection. (30ms).
+2024-07-25 17:33:39.320 +05:30 [DBG] Opening connection to database 'ApiRevision' on server 'RAWKZY'.
+2024-07-25 17:33:39.752 +05:30 [DBG] Opened connection to database 'ApiRevision' on server 'RAWKZY'.
+2024-07-25 17:33:39.759 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-07-25 17:33:39.771 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (7ms).
+2024-07-25 17:33:39.773 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (16ms).
+2024-07-25 17:33:39.786 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[GrNo], [s].[Name], [s].[Stream]
+FROM [Students] AS [s]
+2024-07-25 17:33:39.870 +05:30 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[GrNo], [s].[Name], [s].[Stream]
+FROM [Students] AS [s]
+2024-07-25 17:33:39.894 +05:30 [DBG] Closing data reader to 'ApiRevision' on server 'RAWKZY'.
+2024-07-25 17:33:39.899 +05:30 [DBG] A data reader for 'ApiRevision' on server 'RAWKZY' is being disposed after spending 24ms reading results.
+2024-07-25 17:33:39.902 +05:30 [DBG] Closing connection to database 'ApiRevision' on server 'RAWKZY'.
+2024-07-25 17:33:39.907 +05:30 [DBG] Closed connection to database 'ApiRevision' on server 'RAWKZY' (4ms).
+2024-07-25 17:33:39.908 +05:30 [DBG] GetAll is been executed
+2024-07-25 17:33:39.914 +05:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.XmlDataContractSerializerOutputFormatter"]
+2024-07-25 17:33:39.916 +05:30 [DBG] Attempting to select an output formatter based on Accept header '["application/json"]'.
+2024-07-25 17:33:39.916 +05:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter' and content type 'application/json' to write the response.
+2024-07-25 17:33:39.917 +05:30 [INF] Executing ObjectResult, writing value of type 'ApiRevision.ApiResponse'.
+2024-07-25 17:33:40.092 +05:30 [INF] Executed action ApiRevision.Controllers.StudentsController.GetStudents (ApiRevision) in 2312.8451ms
+2024-07-25 17:33:40.093 +05:30 [INF] Executed endpoint 'ApiRevision.Controllers.StudentsController.GetStudents (ApiRevision)'
+2024-07-25 17:33:40.098 +05:30 [INF] HTTP GET /api/students responded 200 in 2369.4480 ms
+2024-07-25 17:33:40.102 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2024-07-25 17:33:40.109 +05:30 [DBG] Disposing connection to database 'ApiRevision' on server 'RAWKZY'.
+2024-07-25 17:33:40.111 +05:30 [DBG] Disposed connection to database '' on server '' (2ms).
+2024-07-25 17:33:40.111 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7206/api/students - 200 340 application/json; charset=utf-8 2408.9726ms

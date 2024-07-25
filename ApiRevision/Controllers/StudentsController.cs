@@ -42,14 +42,14 @@ namespace ApiRevision.Controllers
                 _apiResponse.Result = studentsDtoList;
                 _apiResponse.StatusCode = HttpStatusCode.OK;
                 _apiResponse.IsSuccess = true;
-                _apiResponse.ErrorMessage = "No Error - Code is Executed Successfully"; 
+                _apiResponse.Message = "No Error - Code is Executed Successfully"; 
 
             }
             catch (Exception)
             {
                 _apiResponse.StatusCode=HttpStatusCode.BadRequest;
                 _apiResponse.IsSuccess= false;
-                _apiResponse.ErrorMessage = "Error Occured";
+                _apiResponse.Message = "Error Occured";
             }
             return _apiResponse;
 
