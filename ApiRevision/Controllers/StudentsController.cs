@@ -65,7 +65,6 @@ namespace ApiRevision.Controllers
 
         public async Task<ApiResponse> GetStudent(int id) 
         {
-            
                 if (id == 0) 
                 {
                     _apiResponse.StatusCode = HttpStatusCode.BadRequest;
@@ -73,7 +72,7 @@ namespace ApiRevision.Controllers
                     _apiResponse.Message = "Id is Zero Pls enter valid No.";
                     return _apiResponse;
                 }
-                var studentInDb =await _context.Students.FindAsync(id);
+            var studentInDb =await _context.Students.FindAsync(id);
 
             if (studentInDb == null)
             {
@@ -99,9 +98,6 @@ namespace ApiRevision.Controllers
 
                 return _apiResponse;
             }
-                   
-                
-                
         }
         #endregion
 
@@ -162,18 +158,37 @@ namespace ApiRevision.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<ApiResponse> Delete(int? id)
         {
-            if(id == null || id ==0) return BadRequest ();
+            if (id == null || id == 0)
+            {
+                {
+                    _apiResponse.StatusCode = HttpStatusCode.BadRequest;
+                    _apiResponse.IsSuccess = false;
+                    _apiResponse.Message = "Id is Zero Pls enter valid No.";
+                    return _apiResponse;
+                }
+            };
 
            var studentInDb = await _context.Students.FindAsync(id);
 
-            if (studentInDb == null) return NotFound ();
+            if (studentInDb == null)
+            {
+                _apiResponse.StatusCode = HttpStatusCode.NotFound;
+                _apiResponse.IsSuccess = false;
+                _apiResponse.Message = "There is no data corresponding to the Id you Entered";
+                return _apiResponse;
+            }
 
-            _context.Students.Remove(studentInDb);
-            _context.SaveChangesAsync();
-            return NoContent();
-
+            else 
+            {
+                _context.Students.Remove(studentInDb);
+                _context.SaveChangesAsync();
+                _apiResponse.StatusCode = HttpStatusCode.OK;
+                _apiResponse.IsSuccess = true;
+                _apiResponse.Message = "Data is Deleted Successfully";
+                return _apiResponse;
+            }
         }
         #endregion
 
